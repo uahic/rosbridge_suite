@@ -85,6 +85,9 @@ class RosbridgeWebSocket(WebSocketHandler):
 
     @log_exceptions
     def open(self):
+        rospy.logwarn_once('The Tornado Rosbridge WebSocket implementation is deprecated.'
+                           ' See rosbridge_server.autobahn_websocket'
+                           ' and rosbridge_websocket.py')
         cls = self.__class__
         parameters = {
             "fragment_timeout": cls.fragment_timeout,
